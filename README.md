@@ -228,9 +228,9 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 ## 👨‍💻 Author
 
 **Your Name**
-- GitHub: [@your-username](https://github.com/your-username)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/your-profile)
-- Email: your.email@example.com
+- GitHub: https://github.com/ayoubameur-crypto
+- LinkedIn: https://www.linkedin.com/in/ayoub-ameur-772a70362/
+- Email: ayoubyameury@gmail.com
 
 ## 🙏 Acknowledgments
 
@@ -253,6 +253,6 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ---
 
-**Made with ❤️ in Morocco** 🇲🇦
+Made with ❤️ by Ayoub Ameur
 
 *iShop Morocco - Where Premium Meets Convenience*
