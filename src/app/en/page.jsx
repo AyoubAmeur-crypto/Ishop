@@ -11,7 +11,7 @@ import 'primereact/resources/themes/saga-blue/theme.css'
 import 'primereact/resources/primereact.min.css'
 import 'primeicons/primeicons.css'
 import BannerSection from './BannerSection/page'
-import CategorySection from './CategorySection/page'
+import CategorySection from './CategorySection'
 
 export default function Products() {
   const [products, setProducts] = useState([])

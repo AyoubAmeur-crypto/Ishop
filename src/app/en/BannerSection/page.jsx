@@ -1,6 +1,7 @@
+'use client'
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { motion } from 'framer-motion'
+import { motion } from 'framer-motion';
 
 import { Navigation, Pagination, Autoplay, EffectFade } from 'swiper/modules';
 
@@ -57,13 +58,8 @@ function BannerSection() {
   return (
     <div className="flex flex-col lg:flex-row gap-6 mb-12 w-full">
       {/* Left Vertical Banner */}
-      <div className="lg:w-1/5 w-full">
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="relative h-[300px] lg:h-[500px] rounded-2xl overflow-hidden shadow-xl group cursor-pointer"
-        >
+      <div className="lg:w-1/5 w-full opacity-0 animate-fade-in-left">
+        <div className="relative h-[300px] lg:h-[500px] rounded-2xl overflow-hidden shadow-xl group cursor-pointer">
           <img
             src={leftBanner.img}
             alt={leftBanner.title}
@@ -83,11 +79,11 @@ function BannerSection() {
               </button>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Main Hero Banner - Center */}
-      <div className="lg:w-3/5 w-full relative">
+      <div className="lg:w-3/5 w-full relative opacity-0 animate-fade-in">
         <Swiper
           modules={[Navigation, Pagination, Autoplay, EffectFade]}
           navigation={{
@@ -157,13 +153,8 @@ function BannerSection() {
       </div>
 
       {/* Right Vertical Banner */}
-      <div className="lg:w-1/5 w-full">
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="relative h-[300px] lg:h-[500px] rounded-2xl overflow-hidden shadow-xl group cursor-pointer"
-        >
+      <div className="lg:w-1/5 w-full opacity-0 animate-fade-in-right">
+        <div className="relative h-[300px] lg:h-[500px] rounded-2xl overflow-hidden shadow-xl group cursor-pointer">
           <img
             src={rightBanner.img}
             alt={rightBanner.title}
@@ -183,11 +174,10 @@ function BannerSection() {
               </button>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );
 }
-
 
 export default BannerSection

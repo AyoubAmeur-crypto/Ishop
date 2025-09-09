@@ -1,6 +1,6 @@
 'use client'
 import { useSearchParams } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Suspense } from 'react'
 import { oneProduct } from '@/app/api/product/product'
 import { placeOrder } from '@/app/api/product/order'
 import ProtectedRoutes from '@/app/context/ProtectedRoutes'
@@ -40,7 +40,7 @@ const MapComponent = dynamic(() => import('@/app/context/MapComponent'), {
   )
 })
 
-function Checkout() {
+function CheckoutContent() {
     const searchParams = useSearchParams()
     const [product, setProduct] = useState(null)
     const [loading, setLoading] = useState(true)
@@ -113,28 +113,15 @@ function Checkout() {
     const handleSubmit = async () => {
         setOrderLoading(true)
         try {
-
-
-                    const serverRes = await placeOrder(formData,id,quantity)
-                     if(serverRes.success){
-
-            setCurrentStep(4)
-        }
-
-            
+            const serverRes = await placeOrder(formData,id,quantity)
+            if(serverRes.success){
+                setCurrentStep(4)
+            }
         } catch (error) {
-
-            console.log("can't precced payment ddue to this",error);
-            
-            
+            console.log("can't proceed payment due to this",error);
         }finally{
-
             setOrderLoading(false)
-
         }
-
-       
-    
     }
 
     if (loading) {
@@ -171,7 +158,7 @@ function Checkout() {
         <ProtectedRoutes>
             <div className="min-h-screen bg-black overflow-x-hidden">
                 {/* Premium Hero Banner */}
-            <div className="relative w-full h-80 overflow-hidden">
+<div className="relative w-full h-80 overflow-hidden">
     {/* Background Image */}
     <div className="absolute inset-0">
         <img 
@@ -986,5 +973,26 @@ function Checkout() {
     )
 }
 
+
+function CheckoutLoading() {
+    return (
+        <ProtectedRoutes>
+            <div className="min-h-screen bg-black flex items-center justify-center">
+                <div className="text-center">
+                    <div className="w-16 h-16 border-4 border-yellow-400 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+                    <p className="text-yellow-400 text-xl font-bold">Loading checkout...</p>
+                </div>
+            </div>
+        </ProtectedRoutes>
+    )
+}
+
+function Checkout() {
+    return (
+        <Suspense fallback={<CheckoutLoading />}>
+            <CheckoutContent />
+        </Suspense>
+    )
+}
 
 export default Checkout

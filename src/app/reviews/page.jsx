@@ -1,3 +1,4 @@
+'use client'
 import React, { useContext, useEffect, useState } from 'react'
 import { getReviews, addReview } from '../api/product/Review'; 
 import { userFetchedData } from '../context/AuthContext';
