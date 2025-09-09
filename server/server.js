@@ -2,7 +2,7 @@ const { default: mongoose } = require('mongoose')
 const app = require('./app')
 require('dotenv').config()
 
-const db_url = process.env.MONGODB_URL
+const db_url = process.env.MONGODB_URI
 const port = process.env.PORT
 
 app.listen(port,()=>{console.log(`Server Connected On Port ${port}`);
